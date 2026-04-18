@@ -28,6 +28,13 @@ class CountryMacros
             });
         });
 
+        Collection::macro('byLanguage', function (string $languageCode) {
+            return $this->filter(function ($item) use ($languageCode) {
+                $itemLanguages = is_array($item) ? ($item['languages'] ?? null) : $item->languages ?? null;
+                return $itemLanguages && in_array($languageCode, $itemLanguages, true);
+            });
+        });
+
         Collection::macro('withFlags', function () {
             return $this->map(function ($item) {
                 if (is_array($item)) {

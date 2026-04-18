@@ -30,6 +30,7 @@ $countries = new Countries();
 $usa = $countries->getOne('US');
 $allCountries = $countries->getList();
 $euroCountries = $countries->getByCurrency('EUR');
+$spanishCountries = $countries->getByLanguage('es');
 ```
 
 ## Features
@@ -37,6 +38,7 @@ $euroCountries = $countries->getByCurrency('EUR');
 - 🌍 All 249 countries with complete data
 - 🏳️ Flag emojis for every country
 - 💰 Currency information and filtering
+- 🚩 Language information and filtering (ISO 639-1 codes)
 - 🌏 Regional grouping and filtering
 - 🔍 Search and query capabilities
 - 📋 Laravel validation rules

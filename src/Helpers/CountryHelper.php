@@ -100,6 +100,11 @@ class CountryHelper
         return null;
     }
 
+    public static function getByLanguage(string $languageCode): array
+    {
+        return self::getCountriesInstance()->getByLanguage($languageCode);
+    }
+
     public static function searchByName(string $query): array
     {
         return self::getCountriesInstance()->search($query);

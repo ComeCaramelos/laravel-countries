@@ -72,7 +72,7 @@ class Country extends Model
 
     public function scopeByLanguage(Builder $query, string $language): Builder
     {
-        return $query->where('languages', 'LIKE', "%{$language}%");
+        return $query->whereJsonContains('languages', $language);
     }
 
     public function scopeSearch(Builder $query, string $search): Builder

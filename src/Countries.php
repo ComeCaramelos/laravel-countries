@@ -197,6 +197,22 @@ class Countries extends Model
     }
 
     /**
+     * Get countries by language code (ISO 639-1)
+     *
+     * @param string $languageCode The ISO 639-1 language code (e.g., 'es', 'en', 'fr')
+     * @return array<string, array<string, mixed>>
+     */
+    public function getByLanguage(string $languageCode): array
+    {
+        $countries = $this->getCountries();
+
+        return array_filter($countries, function ($country) use ($languageCode) {
+            return isset($country['languages']) && 
+                   in_array($languageCode, $country['languages'], true);
+        });
+    }
+
+    /**
      * Search countries by name or capital
      *
      * @param string $query
